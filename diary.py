@@ -1,3 +1,16 @@
+import csv
+
+with open('diary.csv', 'w', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerow(['Date', 'Questions', 'Answers'])
+
+Questions = [
+    
+]
+
+Answers = [
+    
+]
 
 feeling = input("How are you feeling today? \ngood, happy, sad, mad, fine, stressed, idk \n")
 rate = input("Can you rate your feeling on a scale 1-10 \n")
