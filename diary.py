@@ -1,31 +1,31 @@
 import csv
 
-with open('diary.csv', 'w', newline='') as file:
-    writer = csv.writer(file)
-    writer.writerow(['Date', 'Questions', 'Answers'])
-
-Questions = [
-    
-]
-
-Answers = [
-    
-]
-
-feeling = input("How are you feeling today? \ngood, happy, sad, mad, fine, stressed, idk \n")
+date = input("What date is it today? [dd-mm-yy] \n")
 rate = input("Can you rate your feeling on a scale 1-10 \n")
+feeling = input("How are you feeling today? \n")
 
-if feeling == "happy" or "good" or "fine":
-    note = input("That is nice to hear! Tell me more :) \n")
-else:
-    note2 = input("Can you tell me why? Did something happened? \n")
+note = input("Can you tell me why? Did something happened? \n")
 
-con = input("Do you want to tell me something else? [yes/no]")
+con = input("Do you want to tell me something else? [yes/no] \n")
 
 if con == "yes":
-    input("What did you had in mind?")
+    note2 = input("What did you had in mind? \n")
 elif con == "no":
-    print("Okay, remember that i'm always here your you! I see you tomorrow.")
+    note2 = " "
+    print("Okay, remember that i'm always here for you! I see you tomorrow.")
+
+Questions = [
+    [date],
+    ["Can you rate your feeling on a scale 1-10 ", rate],
+    ["How are you feeling today? ", feeling],
+    ["Can you tell me why? Did something happened? ", note],
+    ["Do you want to tell me something else? ", con, note2],
+    [" "]
+]
+
+with open('diary.csv', 'a', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerows(Questions)
 
 # input("What is taking up most of my headspace? ")
 
