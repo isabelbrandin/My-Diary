@@ -1,8 +1,10 @@
 import csv
+import webbrowser
 
 date = input("What date is it today? [dd-mm-yy] \n")
 rate = input("Can you rate your feeling on a scale 1-10 \n")
 feeling = input("How are you feeling today? \n")
+sleep = input("How did you sleep last night?")
 
 note = input("Can you tell me why? Did something happened? \n")
 
@@ -18,6 +20,7 @@ Questions = [
     [date],
     ["Can you rate your feeling on a scale 1-10 ", rate],
     ["How are you feeling today? ", feeling],
+    ["How much sleep did you get last night? "]
     ["Can you tell me why? Did something happened? ", note],
     ["Do you want to tell me something else? ", con, note2],
     [" "]
