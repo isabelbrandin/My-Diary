@@ -1,31 +1,44 @@
 import csv
 import webbrowser
 
-date = input("What date is it today? [dd-mm-yy] \n")
-rate = input("Can you rate your feeling on a scale 1-10 \n")
-feeling = input("How are you feeling today? \n")
+r_w = input("Do you want to read in your diary or write? [read / write] \n")
 
-note = input("Can you tell me why? Did something happened? \n")
-sleep = input("How did you sleep last night?")
-sleeping =input("How much did you sleep?")
-con = input("Do you want to tell me something else? [yes/no] \n")
+if r_w == "write":
 
-if con == "yes":
-    note2 = input("What did you had in mind? \n")
-elif con == "no":
-    note2 = " "
-    print("Okay, remember that i'm always here for you! I see you tomorrow.")
+    date = input("What date is it today? [dd-mm-yy] \n")
+    rate = input("Can you rate your feeling on a scale 1-10 \n")
+    feeling = input("How are you feeling today? \n")
 
-Questions = [
-    [date],
-    ["Can you rate your feeling on a scale 1-10 ", rate],
-    ["How are you feeling today? ", feeling],
-    ["Can you tell me why? Did something happened? ", note],
-    ["How did you sleep last night?", sleep, sleeping],
-    ["Do you want to tell me something else? ", con, note2],
-    [" "]
-]
+    note = input("Can you tell me why? Did something happened? \n")
+    sleep = input("How did you sleep last night? \n")
+    sleeping =input("How much did you sleep? \n")
+    con = input("Do you want to tell me something else? [yes/no] \n")
 
-with open('diary.csv', 'a', newline='') as file:
-    writer = csv.writer(file)
-    writer.writerows(Questions)
+    if con == "yes":
+        note2 = input("What did you had in mind? \n")
+    elif con == "no":
+        note2 = " "
+        print("Okay, remember that i'm always here for you! I see you tomorrow.")
+
+    Questions = [
+        [date],
+        ["Can you rate your feeling on a scale 1-10 ", rate],
+        ["How are you feeling today? ", feeling],
+        ["Can you tell me why? Did something happened? ", note],
+        ["How did you sleep last night?", sleep, sleeping],
+        ["Do you want to tell me something else? ", con, note2],
+        [" "]
+    ]
+
+    with open('diary.csv', 'a', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerows(Questions)
+
+elif r_w == "read":
+
+    day = input("Which day do you want to read? [dd-mm-yy] \n")
+    
+    with open('diary.csv', newline='') as file:
+        reader = csv.reader(file)
+        
+
