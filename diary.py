@@ -29,9 +29,3 @@ Questions = [
 with open('diary.csv', 'a', newline='') as file:
     writer = csv.writer(file)
     writer.writerows(Questions)
-
-# input("What is taking up most of my headspace? ")
-
-# input("When did you last eat a whole meal? ")
-
-# input("How much sleep did you get last night? ")
