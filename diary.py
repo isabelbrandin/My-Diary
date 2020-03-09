@@ -21,24 +21,25 @@ if r_w == "write":
         print("Okay, remember that i'm always here for you! I see you tomorrow.")
 
     Questions = [
-        [date],
         ["Can you rate your feeling on a scale 1-10 ", rate],
         ["How are you feeling today? ", feeling],
         ["Can you tell me why? Did something happened? ", note],
         ["How did you sleep last night?", sleep, sleeping],
         ["Do you want to tell me something else? ", con, note2],
-        [" "]
     ]
 
     with open('diary.csv', 'a', newline='') as file:
-        writer = csv.writer(file)
-        writer.writerows(Questions)
+        fieldnames = ['date', 'questions']
+        writer = csv.DictWriter(file, fieldnames=fieldnames)
+        # writer.writeheader()
+        writer.writerow({'date': date, 'questions': Questions})
 
 elif r_w == "read":
 
     day = input("Which day do you want to read? [dd-mm-yy] \n")
     
-    with open('diary.csv', newline='') as file:
-        reader = csv.reader(file)
-        
+    with open('diary.csv', 'r') as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            print(row['date'], row['questions'])
 
