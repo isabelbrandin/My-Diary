@@ -1,3 +1,1 @@
-date,questions
-09-03-20,"[['Can you rate your feeling on a scale 1-10 ', '7'], ['How are you feeling today? ', 'd'], ['Can you tell me why? Did something happened? ', 'd'], ['How did you sleep last night?', 'd', 'd'], ['Do you want to tell me something else? ', 'no', ' ']]"
-10-03-20,"[['Can you rate your feeling on a scale 1-10 ', '5'], ['How are you feeling today? ', 'd'], ['Can you tell me why? Did something happened? ', 'd'], ['How did you sleep last night?', '', 's'], ['Do you want to tell me something else? ', 'no', ' ']]"
+date,rate,feeling,note,sleep,naptime,con,note2
