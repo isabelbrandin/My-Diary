@@ -1,1 +1,1 @@
-Can you rate your feeling on a scale 1-10 ,How are you feeling today? ,Can you tell me why? Did something happened? ,How did you sleep last night? ,How much did you sleep? ,Do you want to tell me something else? [yes/no] ,What did you had in mind? 
+How are you feeling today? ,Can you rate your feeling on a scale 1-10 ,Can you tell me why? Did something happened? ,How did you sleep last night? ,How much did you sleep? ,Do you want to tell me something else? [yes/no] ,What did you had in mind? 

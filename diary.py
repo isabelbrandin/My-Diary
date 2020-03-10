@@ -7,26 +7,26 @@ questions = open("questions.txt", "r").read().split(',')
 if r_w == "write":
     date = input("What date is it today? [dd-mm-yy] \n")
     
-    rate = input(questions[0])
-    feeling = input(questions[1])
-    note = input(questions[2])
-    sleep = input(questions[3])
-    naptime = input(questions[4])
-    con = input(questions[5])
+    feeling = input(questions[0] + '\n')
+    rate = input(questions[1] + '\n')
+    note = input(questions[2] + '\n')
+    sleep = input(questions[3] + '\n')
+    naptime = input(questions[4] + '\n')
+    con = input(questions[5] + '\n')
     if con == "yes":
-        note2 = input(questions[6])
+        note2 = input(questions[6] + '\n')
     elif con == "no":
         note2 = " "
         print("Okay, remember that i'm always here for you! I see you tomorrow.")
 
     with open('diary.csv', 'a', newline='') as file:
-        fieldnames = ['date', 'rate', 'feeling', 'note', 'sleep', 'naptime', 'con', 'note2']
+        fieldnames = ['date', 'feeling', 'rate', 'note', 'sleep', 'naptime', 'con', 'note2']
         writer = csv.DictWriter(file, fieldnames=fieldnames)
         # writer.writeheader()
         if note2 != " ":
-            writer.writerow({fieldnames[0]: date, fieldnames[1]: rate, fieldnames[2]: feeling, fieldnames[3]: note, fieldnames[4]: sleep, fieldnames[5]: naptime, fieldnames[6]: con, fieldnames[7]: note2})
+            writer.writerow({fieldnames[0]: date, fieldnames[1]: feeling, fieldnames[2]: rate, fieldnames[3]: note, fieldnames[4]: sleep, fieldnames[5]: naptime, fieldnames[6]: con, fieldnames[7]: note2})
         else:
-            writer.writerow({fieldnames[0]: date, fieldnames[1]: rate, fieldnames[2]: feeling, fieldnames[3]: note, fieldnames[4]: sleep, fieldnames[5]: naptime, fieldnames[6]: con})
+            writer.writerow({fieldnames[0]: date, fieldnames[1]: feeling, fieldnames[2]: rate, fieldnames[3]: note, fieldnames[4]: sleep, fieldnames[5]: naptime, fieldnames[6]: con})
 
 elif r_w == "read":
 
@@ -36,9 +36,9 @@ elif r_w == "read":
         reader = csv.DictReader(file)
         for row in reader:
             if day == row['date']:
-                answers = [row['rate'],row['feeling'],row['note'],row['sleep'],row['naptime'],row['con'],row['note2']]
+                answers = [row['feeling'],row['rate'],row['note'],row['sleep'],row['naptime'],row['con'],row['note2']]
                 for i in range(len(questions)):
-                    if answers[i] != " ":
+                    if answers[i] != '':
                         print('Q: ' + questions[i])
                         print('A: ' + answers[i].strip("'"))
                         print(' ')
