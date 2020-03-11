@@ -1,10 +1,12 @@
 import csv
 import webbrowser
 
-r_w = input("Do you want to read in your diary or write? [read / write] \n")
+# Inloggning?
+
+read_write = input("Do you want to read in your diary or write? [read / write] \n")
 questions = open("questions.txt", "r").read().split(',')
 
-if r_w == "write":
+if read_write == "write":
     date = input("What date is it today? [dd-mm-yy] \n")
     
     feeling = input(questions[0] + '\n')
@@ -13,24 +15,29 @@ if r_w == "write":
     sleep = input(questions[3] + '\n')
     naptime = input(questions[4] + '\n')
     con = input(questions[5] + '\n')
+
+# Fler frågor?
+
     if con == "yes":
         note2 = input(questions[6] + '\n')
     elif con == "no":
-        note2 = " "
+        note2 = ' '
         print("Okay, remember that i'm always here for you! I see you tomorrow.")
 
     with open('diary.csv', 'a', newline='') as file:
         fieldnames = ['date', 'feeling', 'rate', 'note', 'sleep', 'naptime', 'con', 'note2']
         writer = csv.DictWriter(file, fieldnames=fieldnames)
         # writer.writeheader()
-        if note2 != " ":
+        if note2 != ' ':
             writer.writerow({fieldnames[0]: date, fieldnames[1]: feeling, fieldnames[2]: rate, fieldnames[3]: note, fieldnames[4]: sleep, fieldnames[5]: naptime, fieldnames[6]: con, fieldnames[7]: note2})
         else:
             writer.writerow({fieldnames[0]: date, fieldnames[1]: feeling, fieldnames[2]: rate, fieldnames[3]: note, fieldnames[4]: sleep, fieldnames[5]: naptime, fieldnames[6]: con})
 
-elif r_w == "read":
+# Lista med videos, en relaterande video efter hur man mår skickas ut?
 
-    day = input("Which day do you want to read? [dd-mm-yy] \n")
+elif read_write == 'read':
+
+    day = input('Which day do you want to read? [dd-mm-yy] \n')
     
     with open('diary.csv', 'r') as file:
         reader = csv.DictReader(file)
