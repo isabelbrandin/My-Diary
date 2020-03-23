@@ -1,5 +1,4 @@
 import csv
-import webbrowser
 
 # Inloggning?
 
@@ -35,6 +34,15 @@ if read_write == "write":
 
 # Lista med videos, en relaterande video efter hur man mår skickas ut?
 
+import webbrowser
+import random
+
+website = ["https://www.youtube.com/watch?v=xVIbwE_eGK0" , "https://www.youtube.com/watch?v=5Cdv932eoU0" , "https://www.youtube.com/watch?v=PI4JABNwB_U" , "https://www.youtube.com/watch?v=7Nn7NZI_LN4" , "https://www.youtube.com/watch?v=gCAYhUkKUjU" , "https://www.youtube.com/watch?v=1-G6ufv3wG0" , "https://www.youtube.com/watch?v=cjp3iq7fJsI" , "https://www.youtube.com/watch?v=LS_FPxmtz_U" , "https://www.youtube.com/watch?v=4UaYMPfOMGI" , "https://www.youtube.com/watch?v=YJ73wMKovik" , "https://www.youtube.com/watch?v=BT94ZwTGSQU" , "https://www.youtube.com/watch?v=H-zFRGP7MUQ" , "https://www.youtube.com/watch?v=dRkQW-9XvBI" , "https://www.youtube.com/watch?v=PppkNH3bKV4" , "https://youtu.be/26520P-sDmY" , "https://www.youtube.com/watch?v=JRnqdEZ8aoc" , "https://www.youtube.com/watch?v=ur48jVNNlKk" , "https://www.youtube.com/watch?v=D-UmfqFjpl0" , "https://www.youtube.com/watch?v=Ut-fJCc0zS4"
+]
+
+webbrowser.open_new(random.choice(websites))
+
+
 elif read_write == 'read':
 
     day = input('Which day do you want to read? [dd-mm-yy] \n')
@@ -49,3 +57,4 @@ elif read_write == 'read':
                         print('Q: ' + questions[i])
                         print('A: ' + answers[i].strip("'"))
                         print(' ')
+
