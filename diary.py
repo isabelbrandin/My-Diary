@@ -58,6 +58,23 @@ if read_write == "write":
         else:
             writer.writerow({fieldnames[0]: date, fieldnames[1]: feeling, fieldnames[2]: rate, fieldnames[3]: note, fieldnames[4]: sleep, fieldnames[5]: naptime, fieldnames[6]: con})
 
+
+elif read_write == 'read':
+
+    day = input('Which day do you want to read? [dd-mm-yy] \n')
+    
+    with open('diary.csv', 'r') as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            if day == row['date']:
+                answers = [row['feeling'],row['rate'],row['note'],row['sleep'],row['naptime'],row['con'],row['note2']]
+                for i in range(len(questions)):
+                    if answers[i] != '':
+                        print('Q: ' + questions[i])
+                        print('A: ' + answers[i].strip("'"))
+                        print(' ')
+
+
 # Lista med videos, en relaterande video efter hur man mår skickas ut?
 
 import webbrowser
@@ -83,24 +100,11 @@ music = ["https://www.youtube.com/watch?v=56WBK4ZK_cw" , "https://www.youtube.co
 "https://www.youtube.com/watch?v=rxf5ZGg9sQw" , "https://youtu.be/dy9nwe9_xzw" , 
 "https://www.youtube.com/watch?v=KmVnOHjO6yU" , "https://www.youtube.com/watch?v=RfsAtKdATj0" , 
 "https://www.youtube.com/watch?v=1OK1OqA-En4" , "https://www.youtube.com/watch?v=dhYOPzcsbGM" , 
-"https://www.youtube.com/watch?v=60ItHLz5WEA" 
-
+"https://www.youtube.com/watch?v=60ItHLz5WEA" , "https://www.youtube.com/watch?v=6RLLOEzdxsM" , 
+"https://www.youtube.com/watch?v=wJnBTPUQS5A" , "https://www.youtube.com/watch?v=1-xGerv5FOk" , 
+"https://www.youtube.com/watch?v=L3wKzyIN1yk" , "https://www.youtube.com/watch?v=Oj18EikZMuU" , 
+"https://www.youtube.com/watch?v=M-P4QBt-FWw", "https://www.youtube.com/watch?v=kTJbE3sfvlI" , 
+"https://www.youtube.com/watch?v=0Mo_jbZtE-Q"
 ]
 
 webbrowser.open_new(random.choice(music))
-
-elif read_write == 'read':
-
-    day = input('Which day do you want to read? [dd-mm-yy] \n')
-    
-    with open('diary.csv', 'r') as file:
-        reader = csv.DictReader(file)
-        for row in reader:
-            if day == row['date']:
-                answers = [row['feeling'],row['rate'],row['note'],row['sleep'],row['naptime'],row['con'],row['note2']]
-                for i in range(len(questions)):
-                    if answers[i] != '':
-                        print('Q: ' + questions[i])
-                        print('A: ' + answers[i].strip("'"))
-                        print(' ')
-
