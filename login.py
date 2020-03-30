@@ -2,8 +2,9 @@ import csv
 import diary
 
 def create_user():
-    new_username = input("Choose your username: \n")
-    new_password = input("Choose your password: \n")
+    print("\nCREATE YOUR ACCOUNT")
+    new_username = input("Choose your username: ")
+    new_password = input("Choose your password: ")
     with open('login_data.csv', 'a', newline='') as csvfile:
         fieldnames = ['Username', 'Password']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
@@ -14,18 +15,27 @@ def create_user():
 def user_exists(username, password):
     with open('login_data.csv','r') as file:
         reader = csv.DictReader(file)
+        exists = False
         for row in reader:
             if username == row['Username'] and password == row['Password']:
-                return True
-            else:
-                return False
+                exists = True
+        return exists
+
 
 def login():
-    username = input("Enter your username: \n")
-    password = input("Enter your password: \n")
+    print("\nLOGIN WITH YOUR USERNAME AND PASSWORD")
+    username = input("Enter your username: ")
+    password = input("Enter your password: ")
     if user_exists(username, password):
         diary.run()
     else:
-        create_user()
+        choose = input("Do you want to try again or create a new user? \n[again / create] \n")
+        if choose == "create":
+            create_user()
+        else:
+            login()
 
-login()
+if user_exists("Linneaaa","Karlstrom"):
+    print("JA")
+else:
+    print("NEJ")
