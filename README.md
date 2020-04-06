@@ -1,1 +1,3 @@
 # My-Diary
+My Diary is a program which ...
+
