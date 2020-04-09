@@ -1,10 +1,11 @@
 import csv
 import diary
+import getpass
 
 def create_user():
     print("\nCREATE YOUR ACCOUNT")
     new_username = input("Choose your username: ")
-    new_password = input("Choose your password: ")
+    new_password = getpass.getpass("Choose your password: ")
     with open('login.csv', 'a', newline='') as csvfile:
         fieldnames = ['Username', 'Password']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
@@ -24,7 +25,7 @@ def user_exists(username, password):
 def login():
     print("\nLOGIN WITH YOUR USERNAME AND PASSWORD")
     username = input("Enter your username: ")
-    password = input("Enter your password: ")
+    password = getpass.getpass("Enter your password: ")
     if user_exists(username, password):
         diary.run()
     else:
