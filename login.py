@@ -5,7 +5,7 @@ def create_user():
     print("\nCREATE YOUR ACCOUNT")
     new_username = input("Choose your username: ")
     new_password = input("Choose your password: ")
-    with open('login_data.csv', 'a', newline='') as csvfile:
+    with open('login.csv', 'a', newline='') as csvfile:
         fieldnames = ['Username', 'Password']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         # writer.writeheader()
@@ -13,7 +13,7 @@ def create_user():
     login()
 
 def user_exists(username, password):
-    with open('login_data.csv','r') as file:
+    with open('login.csv','r') as file:
         reader = csv.DictReader(file)
         for row in reader:
             if username == row['Username'] and password == row['Password']:
@@ -36,7 +36,3 @@ def login():
 
 login()
 
-# if user_exists("Linneaaa","Karlstrom"):
-#     print("JA")
-# else:
-#     print("NEJ")
