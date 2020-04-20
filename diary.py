@@ -41,7 +41,7 @@ def run():
         with open('diary.csv', 'r') as file:
             reader = csv.DictReader(file)
             for row in reader:
-                if day == row['date']:
+                if day == row['datee']:
                     answers = [row['feeling'],row['rate'],row['note'],row['sleep'],row['naptime'],row['con'],row['note2']]
                     for i in range(len(questions)):
                         if answers[i] != '':
